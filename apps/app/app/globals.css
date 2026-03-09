@@ -2,3 +2,23 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-navy-900: #1B2A4A;
+  --color-navy-800: #243558;
+  --color-navy-700: #2E4270;
+  --color-gold: #E8B84B;
+  --color-surface: #F8F9FB;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: theme(--color-surface);
+    color: #111827;
+    font-family: theme(--font-sans);
+  }
+  * {
+    box-sizing: border-box;
+  }
+}

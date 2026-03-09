@@ -91,5 +91,11 @@ turbo dev --filter=web         # marketing only (port 3000)
 npm run build && npm run lint
 ```
 
+## UX Philosophy
+- **Stay nimble** — prioritize flexibility over premature optimization. Build features in ways that are easy to change.
+- **Config-driven where feasible** — dashboards, nav, widgets, and form layouts should be driven by config arrays/objects so they can be reordered or toggled without structural changes.
+- **Iterate on user feedback** — placeholder data and stubbed flows are fine; ship the UI shell, validate with real users, then wire up real data.
+- **Prefer composition** — small, focused components that can be rearranged or swapped easily.
+
 ## Third-party status
 Stripe, Resend, Google OAuth/Calendar — all stubbed. Build UI and Server Action shells with clear `// TODO: wire up [service]` comments. Don't block features on missing keys.
