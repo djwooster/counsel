@@ -32,7 +32,7 @@ export default function Footer() {
             transition={{ duration: 0.65 }}
             className="text-3xl md:text-4xl font-bold text-white leading-tight mb-4"
           >
-            Ready to simplify your practice?
+            Be among the first to get access.
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
@@ -41,7 +41,7 @@ export default function Footer() {
             transition={{ duration: 0.6, delay: 0.07 }}
             className="text-white/50 mb-8 text-lg"
           >
-            14 days free. No credit card. Cancel anytime.
+            Join the waitlist and lock in founding member pricing before we launch.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 12 }}
@@ -64,9 +64,9 @@ export default function Footer() {
                 />
                 <button
                   type="submit"
-                  className="flex items-center gap-1.5 bg-gold hover:bg-gold-dark text-navy font-semibold px-4 py-2.5 rounded-lg transition-colors text-sm group"
+                  className="flex items-center gap-1.5 bg-gold hover:bg-gold-dark text-navy font-bold px-4 py-2.5 rounded-lg transition-colors text-sm group whitespace-nowrap"
                 >
-                  Get started
+                  Join the waitlist
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                 </button>
               </form>

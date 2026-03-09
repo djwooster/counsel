@@ -45,7 +45,7 @@ const PLANS = [
     annualPrice: 41,
     features: FEATURES_SOLO,
     highlight: false,
-    cta: 'Start free trial',
+    cta: 'Join the waitlist',
   },
   {
     name: 'Team',
@@ -55,7 +55,7 @@ const PLANS = [
     perUser: true,
     features: FEATURES_TEAM,
     highlight: true,
-    cta: 'Start free trial',
+    cta: 'Join the waitlist',
     badge: 'Most popular',
   },
   {
@@ -83,7 +83,7 @@ export default function Pricing() {
           transition={{ duration: 0.6 }}
           className="text-xs font-semibold tracking-widest uppercase text-gold text-center mb-4"
         >
-          Pricing
+          Founding member pricing
         </motion.p>
 
         <motion.h2
@@ -93,7 +93,7 @@ export default function Pricing() {
           transition={{ duration: 0.65, delay: 0.05 }}
           className="text-3xl md:text-5xl font-bold text-navy text-center leading-tight tracking-tight mb-4"
         >
-          Honest pricing. No surprises.
+          Lock in your rate before we launch.
         </motion.h2>
 
         <motion.p
@@ -103,7 +103,8 @@ export default function Pricing() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-navy-muted text-center text-lg max-w-xl mx-auto mb-10"
         >
-          Every feature included at every tier. Pay for seats, not add-ons.
+          Waitlist members lock in founding pricing — rates increase at launch.
+          Every feature included at every tier. No add-ons.
         </motion.p>
 
         {/* Annual toggle */}

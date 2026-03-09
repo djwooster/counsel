@@ -60,18 +60,11 @@ export default function Nav() {
         {/* CTA */}
         <div className="flex items-center gap-3">
           <a
-            href="#"
-            className={`hidden md:block text-sm font-medium transition-colors duration-200 ${
-              scrolled ? 'text-navy/70 hover:text-navy' : 'text-white/70 hover:text-white'
-            }`}
-          >
-            Sign in
-          </a>
-          <a
             href="#hero-cta"
-            className="bg-gold hover:bg-gold-dark text-navy text-sm font-semibold px-4 py-2 rounded-lg transition-colors duration-200"
+            className="flex items-center gap-1.5 bg-gold hover:bg-gold-dark text-navy text-sm font-bold px-4 py-2 rounded-lg transition-colors duration-200"
           >
-            Start free trial
+            <span className="w-1.5 h-1.5 bg-navy/40 rounded-full animate-pulse" />
+            Join the waitlist
           </a>
         </div>
       </div>
