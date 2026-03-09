@@ -7,66 +7,55 @@ const PAINS = [
   {
     icon: DollarSign,
     title: 'Enterprise pricing for a 3-person firm',
-    body: "Clio and MyCase were designed for large firms with large budgets. Small practices pay for features they'll never touch.",
+    body: "Clio and MyCase were designed for large firms with large budgets. Small practices end up paying for features they'll never use.",
+    stat: '$300+',
+    statLabel: 'avg. monthly cost at Clio',
   },
   {
     icon: Layers,
-    title: 'Complexity that slows you down',
-    body: 'If your staff needs weeks of training just to log a time entry, the software is working against you — not for you.',
+    title: 'So complex it needs its own onboarding team',
+    body: 'If your paralegal needs weeks of training just to log a time entry, the software is working against you — not for you.',
+    stat: '90 days',
+    statLabel: 'typical implementation time',
   },
   {
     icon: PuzzleIcon,
-    title: 'Endless nickel-and-diming',
-    body: 'Client portal? Extra. E-signatures? Extra. Billing? Extra. The base price is never the real price.',
+    title: 'Endless add-ons for basic functionality',
+    body: 'Client portal? Extra. E-signatures? Extra. Intake forms? Extra. The advertised price is never the real price.',
+    stat: '6–8',
+    statLabel: 'paid add-ons for full functionality',
   },
 ]
 
 const container = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.12 } },
+  show: { transition: { staggerChildren: 0.1 } },
 }
 const card = {
-  hidden: { opacity: 0, y: 32 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: 'easeOut' as const } },
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' as const } },
 }
 
 export default function PainPoints() {
   return (
-    <section className="bg-white py-28 px-6">
+    <section className="bg-surface py-28 px-6">
       <div className="max-w-7xl mx-auto">
-        {/* Label */}
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.6 }}
-          className="text-xs font-semibold tracking-widest uppercase text-gold text-center mb-4"
+          className="text-center mb-14"
         >
-          The problem
-        </motion.p>
+          <p className="text-xs font-semibold tracking-widest uppercase text-navy/40 mb-3">The problem</p>
+          <h2 className="text-3xl md:text-5xl font-bold text-navy leading-tight tracking-tight mb-4 max-w-2xl mx-auto">
+            Other CRMs weren't built for firms like yours.
+          </h2>
+          <p className="text-navy/50 text-lg max-w-xl mx-auto">
+            They're designed for 50-attorney firms with IT departments. You're a lean practice that needs tools that just work.
+          </p>
+        </motion.div>
 
-        {/* Heading */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.65, delay: 0.05 }}
-          className="text-3xl md:text-5xl font-bold text-navy text-center leading-tight tracking-tight mb-4 max-w-3xl mx-auto"
-        >
-          Other CRMs weren't built for firms like yours.
-        </motion.h2>
-
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-navy-muted text-center text-lg max-w-xl mx-auto mb-16"
-        >
-          They're designed for 50-attorney firms. You're a 3-attorney shop. That mismatch costs you time, money, and peace of mind.
-        </motion.p>
-
-        {/* Cards */}
         <motion.div
           variants={container}
           initial="hidden"
@@ -74,22 +63,21 @@ export default function PainPoints() {
           viewport={{ once: true, margin: '-60px' }}
           className="grid grid-cols-1 md:grid-cols-3 gap-6"
         >
-          {PAINS.map(({ icon: Icon, title, body }) => (
+          {PAINS.map(({ icon: Icon, title, body, stat, statLabel }) => (
             <motion.div
               key={title}
               variants={card}
-              className="group relative bg-cream border border-stone rounded-2xl p-8 hover:border-gold/40 hover:shadow-lg hover:shadow-gold/5 transition-all duration-300"
+              className="group bg-white border border-border rounded-2xl p-8 hover:border-navy/20 hover:shadow-lg hover:shadow-navy/5 transition-all duration-300"
             >
-              {/* Icon */}
-              <div className="w-11 h-11 bg-navy/5 group-hover:bg-gold/10 rounded-xl flex items-center justify-center mb-6 transition-colors duration-300">
-                <Icon className="w-5 h-5 text-navy/50 group-hover:text-gold-dark transition-colors duration-300" />
+              <div className="w-10 h-10 bg-surface rounded-xl flex items-center justify-center mb-5">
+                <Icon className="w-5 h-5 text-navy/50" />
               </div>
-
-              <h3 className="text-lg font-semibold text-navy mb-3 leading-snug">{title}</h3>
-              <p className="text-navy-muted text-sm leading-relaxed">{body}</p>
-
-              {/* Subtle gold accent line */}
-              <div className="absolute bottom-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-gold/0 to-transparent group-hover:via-gold/30 transition-all duration-500 rounded-full" />
+              <div className="mb-4">
+                <div className="text-2xl font-bold text-navy">{stat}</div>
+                <div className="text-xs text-navy/40 mt-0.5">{statLabel}</div>
+              </div>
+              <h3 className="text-base font-semibold text-navy mb-2 leading-snug">{title}</h3>
+              <p className="text-navy/50 text-sm leading-relaxed">{body}</p>
             </motion.div>
           ))}
         </motion.div>

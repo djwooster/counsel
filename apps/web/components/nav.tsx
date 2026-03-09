@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { Scale } from 'lucide-react'
 
 const links = [
@@ -12,61 +12,45 @@ const links = [
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
-  const { scrollY } = useScroll()
 
   useEffect(() => {
-    return scrollY.on('change', v => setScrolled(v > 40))
-  }, [scrollY])
+    const handler = () => setScrolled(window.scrollY > 20)
+    window.addEventListener('scroll', handler)
+    return () => window.removeEventListener('scroll', handler)
+  }, [])
 
   return (
     <motion.header
-      initial={{ y: -20, opacity: 0 }}
+      initial={{ y: -16, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/95 backdrop-blur-md border-b border-stone-200 shadow-sm'
-          : 'bg-transparent'
+        scrolled ? 'bg-white/95 backdrop-blur-md border-b border-border shadow-sm' : 'bg-white/80 backdrop-blur-sm'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
-        {/* Logo */}
         <a href="/" className="flex items-center gap-2.5 group">
-          <div className="w-8 h-8 bg-gold rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-gold-dark transition-colors duration-200">
-            <Scale className="w-4 h-4 text-navy" />
+          <div className="w-8 h-8 bg-navy rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-navy-light transition-colors duration-200">
+            <Scale className="w-4 h-4 text-gold" />
           </div>
-          <span className={`font-semibold text-lg tracking-tight transition-colors duration-300 ${scrolled ? 'text-navy' : 'text-white'}`}>
-            Counsel
-          </span>
+          <span className="font-semibold text-lg tracking-tight text-navy">Counsel</span>
         </a>
 
-        {/* Links */}
         <nav className="hidden md:flex items-center gap-8">
           {links.map(link => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={`text-sm font-medium transition-colors duration-200 ${
-                scrolled
-                  ? 'text-navy/70 hover:text-navy'
-                  : 'text-white/70 hover:text-white'
-              }`}
-            >
+            <a key={link.href} href={link.href} className="text-sm font-medium text-navy/60 hover:text-navy transition-colors duration-200">
               {link.label}
             </a>
           ))}
         </nav>
 
-        {/* CTA */}
-        <div className="flex items-center gap-3">
-          <a
-            href="#hero-cta"
-            className="flex items-center gap-1.5 bg-gold hover:bg-gold-dark text-navy text-sm font-bold px-4 py-2 rounded-lg transition-colors duration-200"
-          >
-            <span className="w-1.5 h-1.5 bg-navy/40 rounded-full animate-pulse" />
-            Join the waitlist
-          </a>
-        </div>
+        <a
+          href="#hero-cta"
+          className="flex items-center gap-2 bg-navy hover:bg-navy-light text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors duration-200"
+        >
+          <span className="w-1.5 h-1.5 bg-gold rounded-full animate-pulse" />
+          Join the waitlist
+        </a>
       </div>
     </motion.header>
   )

@@ -1,5 +1,6 @@
 import Nav from '@/components/nav'
 import Hero from '@/components/hero'
+import SocialProof from '@/components/social-proof'
 import PainPoints from '@/components/pain-points'
 import Features from '@/components/features'
 import Pricing from '@/components/pricing'
@@ -12,6 +13,7 @@ export default function LandingPage() {
     <>
       <Nav />
       <Hero />
+      <SocialProof />
       <PainPoints />
       <Features />
       <Pricing />

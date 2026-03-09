@@ -10,6 +10,8 @@
   --color-gold-dark: #C9992A;
   --color-cream: #FAF8F4;
   --color-stone: #F2EFE9;
+  --color-surface: #F8F9FB;
+  --color-border: #E5E7EB;
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
@@ -21,4 +23,6 @@ html {
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #1B2A4A;
+  background: white;
 }
